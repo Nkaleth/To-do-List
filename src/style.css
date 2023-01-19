@@ -1,7 +1,138 @@
-body {
-  background-color: bisque;
+* {
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
 }
 
-.hello {
-  color: red;
+body {
+  background-color: #f1f2f5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.todolist {
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 50%;
+  height: auto;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+}
+
+.todolist h2 {
+  margin: 0;
+  padding-left: 2%;
+  width: 98%;
+  height: 50px;
+  background: white;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.addContainer {
+  display: flex;
+  background: white;
+}
+
+.addInput {
+  margin-left: 2%;
+  border: none;
+  width: 95%;
+}
+
+.addButton {
+  border: none;
+  width: 40px;
+  height: 40px;
+  background: url(/src/img/arrow_enter.svg);
+  background-size: cover;
+}
+
+.addButton:hover {
+  cursor: pointer;
+}
+
+.list {
+  padding-left: 0;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* task style */
+.taskContainer {
+  display: flex;
+  background: white;
+}
+
+.checkbox {
+  width: 40px;
+  height: auto;
+  background-image: url(./img/checkbox.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 50%;
+  border: none;
+  background-color: white;
+}
+
+.checkbox:active {
+  background-image: url(./img/check.svg);
+}
+
+.checkbox:hover {
+  cursor: pointer;
+}
+
+.task {
+  all: unset;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.dots {
+  width: 40px;
+  height: auto;
+  background-image: url(./img/menu_dots.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 50%;
+  border: none;
+  background-color: white;
+}
+
+.dots:hover {
+  cursor: grab;
+}
+
+/* Clear tasks button */
+
+.clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonContainer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonClear {
+  border: none;
+}
+
+.buttonClear:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
