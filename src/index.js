@@ -24,6 +24,16 @@ const tasks = [
   },
 ];
 
+class Task {
+  constructor(description, index, completed = false) {
+    this.description = description;
+    this.index = index;
+    this.completed = completed;
+  }
+}
+
+const addContainer = document.querySelector('.addContainer');
+
 const todolist = document.querySelector('.list');
 
 const LoadList = () => {
@@ -39,3 +49,16 @@ const LoadList = () => {
 };
 
 LoadList();
+
+const Addtask = (e) => {
+  e.preventDefault();
+  const description = addContainer.elements[0].value;
+  const count = tasks.length;
+  const task = new Task(description, count);
+  tasks.push(task);
+  /* console.log(tasks); */
+  LoadList();
+  addContainer.reset();
+};
+
+addContainer.addEventListener('submit', Addtask);
