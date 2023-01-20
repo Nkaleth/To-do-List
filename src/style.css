@@ -99,10 +99,10 @@ body {
   font-weight: lighter;
 }
 
-.dots {
+.delete {
   width: 40px;
   height: auto;
-  background-image: url(./img/menu_dots.svg);
+  background-image: url(./img/delete.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position-y: 50%;
@@ -110,8 +110,8 @@ body {
   background-color: white;
 }
 
-.dots:hover {
-  cursor: grab;
+.delete:hover {
+  cursor: pointer;
 }
 
 /* Clear tasks button */
