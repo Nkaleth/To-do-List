@@ -1,7 +1,6 @@
 /* import _, { add } from 'lodash'; */
 import './style.css';
-
-let tasks = [];
+import { loadDataLs, saveDataLs } from './modules/localStorage.js';
 
 class Task {
   constructor(description, index, completed = false) {
@@ -9,6 +8,19 @@ class Task {
     this.index = index;
     this.completed = completed;
   }
+
+  static LoadList = (tasksList) => {
+    const todolist = document.querySelector('.list');
+    let string = '';
+    tasksList.forEach((element) => {
+      string += `<li class="taskContainer">
+      <input type="checkbox" class="checkbox" id="${element.index}">
+      <input type="text" name="" id="${element.index}" class="task" value="${element.description}">
+      <button id="${element.index}" class="delete"></button>
+    </li>`;
+    });
+    todolist.innerHTML = string;
+  };
 
   static removeObWithId = (arr, id) => {
     const ObToRemove = arr.findIndex((obj) => obj.index === id);
@@ -22,27 +34,16 @@ class Task {
     let index = 0;
     arr.forEach((element) => {
       element.index = index;
-      index++;
+      index += 1;
     });
     return arr;
   };
 }
+
+const tasks = loadDataLs();
+Task.LoadList(tasks);
+
 const addContainer = document.querySelector('.addContainer');
-
-const todolist = document.querySelector('.list');
-
-const LoadList = () => {
-  let string = '';
-  tasks.forEach((element) => {
-    string += `<li class="taskContainer">
-    <input type="checkbox" class="checkbox" id="${element.index}">
-    <input type="text" name="" id="${element.index}" class="task" value="${element.description}">
-    <button id="${element.index}" class="delete"></button>
-  </li>`;
-  });
-  todolist.innerHTML = string;
-};
-LoadList();
 
 /* Add new tasks */
 const Addtask = (e) => {
@@ -51,7 +52,8 @@ const Addtask = (e) => {
   const count = tasks.length;
   const task = new Task(description, count);
   tasks.push(task);
-  LoadList();
+  Task.LoadList(tasks);
+  saveDataLs(tasks);
   addContainer.reset();
 };
 
@@ -66,11 +68,14 @@ section.addEventListener('click', (event) => {
   const NewId = target.id;
   if (target.type === 'submit') {
     Task.removeObWithId(tasks, NewId * 1);
-    LoadList();
+    Task.renewIndex(tasks);
+    Task.LoadList(tasks);
+    saveDataLs(tasks);
   }
 });
 
+/*
 section.addEventListener('click', (event) => {
   const { target } = event;
   console.log(target.id);
-});
+}); */
