@@ -27,7 +27,7 @@ class Task {
   };
 
   static renewIndex = (arr) => {
-    let index = 0;
+    let index = 1;
     arr.forEach((element) => {
       element.index = index;
       index += 1;
