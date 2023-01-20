@@ -35,14 +35,13 @@ const LoadList = () => {
   let string = '';
   tasks.forEach((element) => {
     string += `<li class="taskContainer">
-    <button class="checkbox" type="submit"></button>
-    <span id="${element.index}" class="task">${element.description}</span>
+    <input type="checkbox" class="checkbox" id="${element.index}">
+    <input type="text" name="" id="${element.index}" class="task" value="${element.description}">
     <button id="${element.index}" class="delete"></button>
   </li>`;
   });
   todolist.innerHTML = string;
 };
-
 LoadList();
 
 /* Add new tasks */
@@ -71,3 +70,7 @@ section.addEventListener('click', (event) => {
   }
 });
 
+section.addEventListener('click', (event) => {
+  const { target } = event;
+  console.log(target.id);
+});

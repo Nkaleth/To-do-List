@@ -71,18 +71,10 @@ body {
 }
 
 .checkbox {
-  width: 40px;
+  width: 15px;
   height: auto;
-  background-image: url(./img/checkbox.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position-y: 50%;
-  border: none;
-  background-color: white;
-}
-
-.checkbox:active {
-  background-image: url(./img/check.svg);
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .checkbox:hover {
