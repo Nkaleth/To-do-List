@@ -12,7 +12,7 @@ const addContainer = document.querySelector('.addContainer');
 const Addtask = (e) => {
   e.preventDefault();
   const description = addContainer.elements[0].value;
-  const count = tasks.length;
+  const count = tasks.length + 1;
   const task = new Task(description, count);
   tasks.push(task);
   Task.LoadList(tasks);

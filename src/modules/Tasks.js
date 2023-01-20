@@ -40,7 +40,7 @@ class Task {
     if (textEdit === data.description || textEdit === '') {
       // Don't change anything
     } else {
-      arr[id].description = textEdit;
+      arr[id - 1].description = textEdit;
     }
     return arr;
   };
