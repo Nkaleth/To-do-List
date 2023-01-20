@@ -52,8 +52,12 @@
 
 > Here are some key features of the application :
 
--   **Display a to-do-list from and Array Object Dynamically**
--   **Use webpack**
+- **Display a to-do-list from and Array Object Dynamically**
+- **Use webpack**
+- **Implement a function for adding a new task (add a new element to the array).**
+- **Implement a function for deleting a task (remove an element from the array).**
+- **Implement a function for editing task descriptions.**
+- **All changes to the To Do List should be saved in local storage.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,7 +68,6 @@
 N/A
 
 <!-- > Here you can visit my live demo : -->
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,8 +106,6 @@ Install this project with:
   npm install
 ```
 
-
-
 ### Usage
 
 To run the project, execute the following command:
@@ -137,7 +138,6 @@ To run the ESLint linter
   npx eslint .
 ```
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -146,10 +146,9 @@ To run the ESLint linter
 
 👤 **Nilton Segura**
 
--   GitHub: [@Nkaleth](https://github.com/Nkaleth)
--   Twitter: [@NoeSeguraL](https://twitter.com/NoeSeguraL)
--   LinkedIn: [LinkedIn](https://linkedin.com/in/nseguralu)
-
+- GitHub: [@Nkaleth](https://github.com/Nkaleth)
+- Twitter: [@NoeSeguraL](https://twitter.com/NoeSeguraL)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/nseguralu)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,9 +156,8 @@ To run the ESLint linter
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Improve Css Styling.
-- Add and remove tasks.
-- Drag tasks to other positions.
+- **Drag tasks to other positions.**
+- **Live demo**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
