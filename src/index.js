@@ -15,7 +15,7 @@ class Task {
     tasksList.forEach((element) => {
       string += `<li class="taskContainer">
       <input type="checkbox" class="checkbox" id="${element.index}">
-      <input type="text" name="" id="${element.index}" class="task" value="${element.description}">
+      <input type="text" id="${element.index}" class="task" value="${element.description}">
       <button id="${element.index}" class="delete"></button>
     </li>`;
     });
@@ -36,6 +36,16 @@ class Task {
       element.index = index;
       index += 1;
     });
+    return arr;
+  };
+
+  static editTask = (textEdit, arr, id) => {
+    const data = arr.find(({ index }) => index === id * 1);
+    if (textEdit === data.description) {
+      // Don't change anything
+    } else {
+      arr[id].description = textEdit;
+    }
     return arr;
   };
 }
@@ -74,8 +84,12 @@ section.addEventListener('click', (event) => {
   }
 });
 
-/*
-section.addEventListener('click', (event) => {
+/* Edit tasks */
+section.addEventListener('focusout', (event) => {
   const { target } = event;
-  console.log(target.id);
-}); */
+  const editTask = target.value;
+  const idEdit = target.id;
+  Task.editTask(editTask, tasks, idEdit);
+  Task.LoadList(tasks);
+  saveDataLs(tasks);
+});

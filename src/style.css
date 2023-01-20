@@ -91,6 +91,10 @@ body {
   font-weight: lighter;
 }
 
+.task:focus {
+  background: #f6f6f6;
+}
+
 .delete {
   width: 40px;
   height: auto;
