@@ -2,8 +2,9 @@
 import './style.css';
 import { loadDataLs, saveDataLs } from './modules/localStorage.js';
 import Task from './modules/Tasks.js';
+import { ChangeTaskStatus, clearList } from './modules/Interactive.js';
 
-const tasks = loadDataLs();
+let tasks = loadDataLs();
 Task.LoadList(tasks);
 
 const addContainer = document.querySelector('.addContainer');
@@ -23,8 +24,8 @@ const Addtask = (e) => {
 addContainer.addEventListener('submit', Addtask);
 
 const section = document.querySelector('.list');
-/* Remove task */
 
+/* Remove task */
 section.addEventListener('click', (event) => {
   const { target } = event;
   const NewId = target.id;
@@ -37,7 +38,6 @@ section.addEventListener('click', (event) => {
 });
 
 /* Edit tasks */
-
 section.addEventListener('focusout', (event) => {
   const { target } = event;
   const editTask = target.value;
@@ -47,18 +47,25 @@ section.addEventListener('focusout', (event) => {
   saveDataLs(tasks);
 });
 
-/* delete checked tasks */
-
+/* Complete tasks */
 section.addEventListener('click', (event) => {
   const { target } = event;
   const id = target.id.replace(/\D/g, '');
   const textTask = section.querySelector(`[name=i${id}]`);
   if (target.checked === true) {
     textTask.style.cssText += 'text-decoration: line-through';
+    ChangeTaskStatus(tasks, id);
   } else {
     textTask.style.cssText += 'text-decoration: none';
+    ChangeTaskStatus(tasks, id);
   }
-  // console.log(target.checked);
-  // console.log(target.id);
-  // console.log(textTask);
+});
+
+/* Clear all completed tasks */
+const buttonClear = document.querySelector('.buttonClear');
+buttonClear.addEventListener('click', () => {
+  tasks = clearList(tasks);
+  Task.renewIndex(tasks);
+  saveDataLs(tasks);
+  Task.LoadList(tasks);
 });
