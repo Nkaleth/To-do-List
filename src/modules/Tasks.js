@@ -10,8 +10,8 @@ class Task {
     let string = '';
     tasksList.forEach((element) => {
       string += `<li class="taskContainer">
-      <input type="checkbox" class="checkbox" id="${element.index}">
-      <input type="text" id="${element.index}" class="task" value="${element.description}">
+      <input type="checkbox" class="checkbox" id="c${element.index}">
+      <input type="text" name="i${element.index}" id="${element.index}" class="task" value="${element.description}">
       <button id="${element.index}" class="delete"></button>
     </li>`;
     });

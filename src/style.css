@@ -70,20 +70,13 @@ body {
   background: white;
 }
 
-.checkbox {
-  width: 15px;
-  height: auto;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
 .checkbox:hover {
   cursor: pointer;
 }
 
 .task {
   all: unset;
-  width: 100%;
+  width: 90%;
   height: 50px;
   display: flex;
   align-items: center;

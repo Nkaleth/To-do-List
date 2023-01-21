@@ -22,9 +22,8 @@ const Addtask = (e) => {
 
 addContainer.addEventListener('submit', Addtask);
 
-/* Remove task */
-
 const section = document.querySelector('.list');
+/* Remove task */
 
 section.addEventListener('click', (event) => {
   const { target } = event;
@@ -38,6 +37,7 @@ section.addEventListener('click', (event) => {
 });
 
 /* Edit tasks */
+
 section.addEventListener('focusout', (event) => {
   const { target } = event;
   const editTask = target.value;
@@ -45,4 +45,20 @@ section.addEventListener('focusout', (event) => {
   Task.editTask(editTask, tasks, idEdit);
   Task.LoadList(tasks);
   saveDataLs(tasks);
+});
+
+/* delete checked tasks */
+
+section.addEventListener('click', (event) => {
+  const { target } = event;
+  const id = target.id.replace(/\D/g, '');
+  const textTask = section.querySelector(`[name=i${id}]`);
+  if (target.checked === true) {
+    textTask.style.cssText += 'text-decoration: line-through';
+  } else {
+    textTask.style.cssText += 'text-decoration: none';
+  }
+  // console.log(target.checked);
+  // console.log(target.id);
+  // console.log(textTask);
 });
