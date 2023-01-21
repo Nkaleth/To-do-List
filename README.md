@@ -65,7 +65,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-N/A
+[To do List project](https://nkaleth.github.io/To-do-list/)
 
 <!-- > Here you can visit my live demo : -->
 
