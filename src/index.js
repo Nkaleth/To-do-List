@@ -42,22 +42,28 @@ section.addEventListener('focusout', (event) => {
   const { target } = event;
   const editTask = target.value;
   const idEdit = target.id;
-  Task.editTask(editTask, tasks, idEdit);
-  Task.LoadList(tasks);
-  saveDataLs(tasks);
+  const change = Task.editTask(editTask, tasks, idEdit);
+  if (change !== 0) {
+    Task.LoadList(tasks);
+    saveDataLs(tasks);
+  }
 });
 
 /* Complete tasks */
 section.addEventListener('click', (event) => {
   const { target } = event;
-  const id = target.id.replace(/\D/g, '');
-  const textTask = section.querySelector(`[name=i${id}]`);
-  if (target.checked === true) {
-    textTask.style.cssText += 'text-decoration: line-through';
-    ChangeTaskStatus(tasks, id);
-  } else {
-    textTask.style.cssText += 'text-decoration: none';
-    ChangeTaskStatus(tasks, id);
+  if (target.type === 'checkbox') {
+    const id = target.id.replace(/\D/g, '');
+    const textTask = section.querySelector(`[name=i${id}]`);
+    if (target.checked === true) {
+      textTask.style.cssText += 'text-decoration: line-through';
+      ChangeTaskStatus(tasks, id);
+      saveDataLs(tasks);
+    } else {
+      textTask.style.cssText += 'text-decoration: none';
+      ChangeTaskStatus(tasks, id);
+      saveDataLs(tasks);
+    }
   }
 });
 
