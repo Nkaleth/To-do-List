@@ -11,11 +11,19 @@ class Task {
     tasksList.forEach((element) => {
       string += `<li class="taskContainer">
       <input type="checkbox" class="checkbox" id="c${element.index}">
-      <input type="text" name="i${element.index}" id="${element.index}" class="task" value="${element.description}">
+      <input type="text" name="i${element.index}" id="${element.index}" class="task" value="${element.description}" data-type="task">
       <button id="${element.index}" class="delete"></button>
     </li>`;
     });
     todolist.innerHTML = string;
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const tasks = document.querySelectorAll('input[data-type="task"]');
+    tasksList.forEach((element) => {
+      checkboxes[element.index - 1].checked = element.completed;
+      if (element.completed === true) {
+        tasks[element.index - 1].style.cssText += 'text-decoration: line-through';
+      }
+    });
   };
 
   static removeObWithId = (arr, id) => {
@@ -38,7 +46,7 @@ class Task {
   static editTask = (textEdit, arr, id) => {
     const data = arr.find(({ index }) => index === id * 1);
     if (textEdit === data.description || textEdit === '') {
-      // Don't change anything
+      arr = 0;
     } else {
       arr[id - 1].description = textEdit;
     }
